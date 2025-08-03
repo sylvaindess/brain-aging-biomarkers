@@ -1,0 +1,28 @@
+# No DATA FILES — DO NOT TRACK MRI OR LARGE DATA FILES
+data/
+*.nii
+*.nii.gz
+*.img
+*.hdr
+*.csv
+*.tsv
+
+# Python cache and environments
+__pycache__/
+*.py[cod]
+.env
+.venv/
+env/
+venv/
+.envrc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Model & Plot Outputs
+outputs/
+models/
+figures/
+
+# VS Code
+.vscode/
