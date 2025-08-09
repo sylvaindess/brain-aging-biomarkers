@@ -63,6 +63,49 @@ These are processed outputs containing structural segmentations and volumetric m
 Each file is large (~9.5 GB), but can save preprocessing time if you want to work with ready-to-use segmentations.
 If you prefer to build your pipeline starting from raw scans, focus on downloading the raw image data first. FreeSurfer data can be downloaded later for validation or alternative analysis.
 
+### Loading Datasets
+
+Your notebook will need to access the data by referencing the full absolute path on your drive.
+
+I recommend to use an environment variable for the data base path, so the code stays portable and config-free in the repo.
+
+Example:
+
+```
+import os
+
+base_data_path = os.getenv('OASIS_DATA_PATH')
+nii_path = os.path.join(base_data_path, '<OASIS_DISC_FOLDER>', '<DISC_SUBFOLDER>', '<SUBJECT_FOLDER>', 'RAW', '<FILENAME>.hdr')
+
+img = nib.load(nii_path)
+```
+
+Then, set that env var on your machine before running the notebook:
+
+```bash
+# Linux/macOS shells (like Bash or Zsh).
+export OASIS_DATA_PATH=/mnt/external_drive/oasis_raw
+```
+
+```powershell
+# PowerShell
+$Env:OASIS_DATA_PATH="D:\path\to\data"
+```
+
+You could also use a config file (like `config.json` or `.env`) that you will put in .gitignore and which stores local paths.
+
+```python
+import os
+import nibabel as nib
+
+base_path = os.getenv('OASIS_DATA_PATH')
+if not base_path:
+    raise EnvironmentError('Please set the OASIS_DATA_PATH environment variable')
+
+nii_file = os.path.join(base_path, 'oasis_cross-sectional_disc1', 'disc1', 'OAS1_0001_MR1', 'RAW', 'your_file.hdr')
+img = nib.load(nii_file)
+print(img.shape)
+```
 
 ## Future Work
 
