@@ -44,6 +44,26 @@ To run the full pipeline, you must first request access to the [OASIS dataset](h
 Please ensure you follow the terms of their Data Use Agreement.  
 No raw data or subject-level outputs are provided or distributed here.
 
+### On Datasets
+
+Our main study uses the OASIS-3 dataset. However, to begin development and testing, we are starting with:
+
+**OASIS-1:**
+
+1. Demographic and Clinical Data  
+Includes a CSV file with demographic and clinical information — essential for linking imaging data to subjects’ age, diagnosis, cognitive scores, etc.
+Optionally, the Cross-sectional Fact Sheet provides an overview of the dataset.
+
+2. Raw Image Data  
+The files oasis_cross-sectional_disc1.tar.gz through oasis_cross-sectional_disc12.tar.gz contain the raw T1-weighted MRI scans needed for analysis.
+You do not need to download all files at once; starting with discs 1 and 2 is usually sufficient to obtain a representative sample.
+
+3. FreeSurfer Data (optional)  
+These are processed outputs containing structural segmentations and volumetric measurements (including hippocampus volumes).
+Each file is large (~9.5 GB), but can save preprocessing time if you want to work with ready-to-use segmentations.
+If you prefer to build your pipeline starting from raw scans, focus on downloading the raw image data first. FreeSurfer data can be downloaded later for validation or alternative analysis.
+
+
 ## Future Work
 
 - Expand biomarker extraction methods
