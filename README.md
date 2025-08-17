@@ -102,8 +102,8 @@ base_path = os.getenv('OASIS_DATA_PATH')
 if not base_path:
     raise EnvironmentError('Please set the OASIS_DATA_PATH environment variable')
 
-nii_file = os.path.join(base_path, 'oasis_cross-sectional_disc1', 'disc1', 'OAS1_0001_MR1', 'RAW', 'your_file.hdr')
-img = nib.load(nii_file)
+hdr_file = os.path.join(base_path, 'oasis_cross-sectional_disc1', 'disc1', 'OAS1_0001_MR1', 'RAW', 'your_file.hdr')
+img = nib.load(hdr_file)
 print(img.shape)
 ```
 
