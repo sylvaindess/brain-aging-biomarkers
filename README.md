@@ -18,11 +18,21 @@ The goal is to extract meaningful imaging biomarkers—such as hippocampal volum
 - Clone the repository  
 - Set up the Python environment with required libraries:
 
+### Option 1 – venv + pip
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
+
+### Option 2 – Conda (recommended for scientific workflows)
+```bash
+conda env create -f environment.yml
+conda activate brain-age
+
+```
+
 - Download the OASIS MRI dataset (link in documentation)  
 - Follow the preprocessing and analysis notebooks
 
